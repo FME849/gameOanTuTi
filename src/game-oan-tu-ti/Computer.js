@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 class Computer extends Component {
     render() {
-        console.log("render");
         let keyframe = `@keyframes randomItem${Date.now()} {
             0 {top: 100px}
             40% {top: -100px}
@@ -12,10 +11,6 @@ class Computer extends Component {
             100% {top: 0}
         }`;
 
-        const debug = () => {
-            console.log(`randomItem${Date.now()}`)
-        }
-
         return (
             <div>
                 <style>
@@ -23,19 +18,17 @@ class Computer extends Component {
                 </style>
                 <div className='player__thought' style={{
                     position: 'relative',
-                    // overflow: 'hidden'
+                    overflow: 'hidden'
                 }}>
                     <img src={this.props.computerChoice.image}
                         style={{
                             transform: 'scaleX(-1)',
                             height: '100%',
-                            // transition: 'all .05s',
                             animation: `randomItem${Date.now()} .5s`,
                             position: 'absolute',
                             left: 0
                         }}
                         alt='computer-choice'></img>
-                    {/* {debug()} */}
                 </div>
                 <div className='speech-bubble'></div>
                 <img style={{ width: 200, height: 200 }} src='./img/gameOanTuTi/playerComputer.png' alt='player-computer'></img>

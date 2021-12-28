@@ -21,15 +21,13 @@ const gameOanTuTiReducer = (state = initialState, action) => {
 
         case 'RANDOM_GAME': {
             let soNgauNhien = Math.floor(Math.random() * 3);
-            let quanCuocNgauNhien = state.arrPlayerChoice[soNgauNhien];
+            let quanCuocNgauNhien = { ...state.arrPlayerChoice[soNgauNhien] };
             state.computerChoice = quanCuocNgauNhien;
             return { ...state }
         }
 
         case 'END_GAME': {
             const { id } = state.computerChoice;
-            // console.log(state.isPlayerChosen);
-            // console.log(id);
             state.gamesPlayed++;
             switch (state.isPlayerChosen) {
                 case 'keo': {
